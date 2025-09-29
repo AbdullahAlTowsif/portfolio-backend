@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import { UserRouter } from "./modules/user/user.routes";
 import { AuthRouter } from "./modules/auth/auth.routes";
+import { BlogRouter } from "./modules/blog/blog.routes";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(
 
 app.use("/api/v1/user", UserRouter);
 app.use("/api/v1/auth", AuthRouter);
+app.use("/api/v1/blog", BlogRouter);
 
 app.get("/", (_req, res) => {
   res.send("Portfolio Server is running");
