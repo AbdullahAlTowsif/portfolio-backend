@@ -30,6 +30,24 @@ const createUser = async (payload: Prisma.UserCreateInput): Promise<User> => {
 
 }
 
+const getMyself = async (id: number) => {
+    const result = await prisma.user.findUnique({
+        where: {
+            id
+        },
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            picture: true,
+            createdAt: true,
+            updatedAt: true
+        }
+    })
+    return result;
+}
+
 export const UserService = {
     createUser,
+    getMyself,
 }
