@@ -12,14 +12,7 @@ const loginWithCredentials = async ({ email, password }: { email: string, passwo
     if (!user) {
         throw new Error("User not found!")
     }
-    const isPasswordMatched = await bcrypt.compare(password as string, user.password as string)
-
-    if (isPasswordMatched) {
-        return user
-    }
-    else {
-        throw new Error("Password is incorrect!")
-    }
+    return user;
 }
 
 export const AuthService = {

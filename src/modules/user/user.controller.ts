@@ -1,15 +1,6 @@
 import { Request, Response } from "express";
 import { UserService } from "./user.service";
 
-const createUser = async (req: Request, res: Response) => {
-    try {
-        const result = await UserService.createUser(req.body)
-        res.status(201).json(result)
-    } catch (error) {
-        res.status(500).send(error)
-    }
-}
-
 const getMyself = async (req: Request, res: Response) => {
     try {
         const result = await UserService.getMyself(Number(req.params.id))
@@ -20,6 +11,5 @@ const getMyself = async (req: Request, res: Response) => {
 }
 
 export const UserController = {
-    createUser,
     getMyself
 }
