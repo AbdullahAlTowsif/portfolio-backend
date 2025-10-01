@@ -43,7 +43,7 @@ model Project {
   description String
   techStack   String[]
   category    String
-  features    String?
+  features    String[] @default([])
   githubLink  String
   liveLink    String
   thumbnail   String
