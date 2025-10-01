@@ -11,13 +11,12 @@ const auth_routes_1 = require("./modules/auth/auth.routes");
 const blog_routes_1 = require("./modules/blog/blog.routes");
 const project_routes_1 = require("./modules/project/project.routes");
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
-app.use((0, compression_1.default)());
-app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://portfolio-frontend-nine-nu.vercel.app"],
     credentials: true,
 }));
+app.use((0, compression_1.default)());
+app.use(express_1.default.json());
 app.use("/api/v1/user", user_routes_1.UserRouter);
 app.use("/api/v1/auth", auth_routes_1.AuthRouter);
 app.use("/api/v1/blog", blog_routes_1.BlogRouter);

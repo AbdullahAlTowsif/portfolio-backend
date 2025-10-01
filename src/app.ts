@@ -9,16 +9,14 @@ import { ProjectRouter } from "./modules/project/project.routes";
 const app = express();
 
 
-app.use(cors());
-app.use(compression());
-app.use(express.json());
-
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://portfolio-frontend-nine-nu.vercel.app"],
     credentials: true,
   })
 );
+app.use(compression());
+app.use(express.json());
 
 
 app.use("/api/v1/user", UserRouter);
